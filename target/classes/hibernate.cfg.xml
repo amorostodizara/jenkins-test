@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Connexion à la base de données -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/hibernate_db?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF-8
+        </property>
+
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+
+        <!-- Dialecte Hibernate pour MySQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Pool de connexion HikariCP (optionnel) -->
+        <property name="hibernate.hikari.minimumIdle">5</property>
+        <property name="hibernate.hikari.maximumPoolSize">20</property>
+        <property name="hibernate.hikari.idleTimeout">30000</property>
+
+        <!-- Activation du log SQL -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Mode de gestion du schéma -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+<!--         Mapping des entités -->
+      <mapping class="net.example.model.UserModel" /> 
+      <mapping class="net.example.model.ProfModel" /> 
+       <mapping class="net.example.model.SalleModel" /> 
+        <mapping class="net.example.model.OccuperModel" /> 
+<!--         <mapping class="net.example.model.UneAutreClasse" /> -->
+
+    </session-factory>
+</hibernate-configuration>
